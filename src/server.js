@@ -7,7 +7,7 @@ import resenasRoutes from './routes/resenas.js';
 
 const app = express();
 
-dotenv.config({ path: './src/.env' });
+dotenv.config({ path: './.env' });
 app.use(cors());
 app.use(express.json());
 

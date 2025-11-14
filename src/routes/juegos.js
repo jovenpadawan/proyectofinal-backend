@@ -12,6 +12,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/id/:id', async (req, res) => {
+    try {
+        const idNumerico = Number(req.params.id); // <-- CORRECCIÓN CLAVE
+        const juegoEncontrado = await juego.findOne({ id: idNumerico });
+        if (!juegoEncontrado) {
+            return res.status(404).json({ message: 'Juego no encontrado con ese ID.' });
+        }
+        res.json(juegoEncontrado);
+    } catch (error) {
+        res.status(500).json({ message: "Ocurrió un error al buscar el juego por ID.", error });
+    }
+});
+
 router.post('/', async (req, res) => {
     try {
         const ultimoJuego = await juego.findOne().sort({ id: -1 });

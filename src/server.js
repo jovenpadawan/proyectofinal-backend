@@ -7,7 +7,7 @@ import resenasRoutes from './routes/resenas.js';
 
 const app = express();
 
-dotenv.config({ path: './src/.env' });
+dotenv.config();
 app.use(cors());
 app.use(express.json());
 
@@ -26,7 +26,7 @@ mongoose.connect(mongoUri)
 });
 
 app.use('/api/juegos', juegosRoutes);
-app.use('/api/reseñas', resenasRoutes);
+app.use('/api/resenas', resenasRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

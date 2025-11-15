@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const ResenaSchema = new mongoose.Schema({
     id: {type: Number, unique: true},
-    puntuacion: { type: Number, min: 0, max: 10, required: true },
+    puntuacion: { type: Number, min: 0, max: 5, required: true },
     textoResena: { type: String },
     horasJugadas: { type: Number, min: 0 },
     dificultad: { type: String },

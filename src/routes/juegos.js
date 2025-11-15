@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
 router.get('/id/:id', async (req, res) => {
     try {
-        const idNumerico = Number(req.params.id); // <-- CORRECCIÓN CLAVE
+        const idNumerico = Number(req.params.id); 
         const juegoEncontrado = await juego.findOne({ id: idNumerico });
         if (!juegoEncontrado) {
             return res.status(404).json({ message: 'Juego no encontrado con ese ID.' });
